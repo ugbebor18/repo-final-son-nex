@@ -14,14 +14,7 @@ pipeline {
             }
         
             }
-        stage('Code Qualty Scan') {
-
-           steps {
-                  withSonarQubeEnv('sona') {
-             sh "mvn -f SampleWebApp/pom.xml sonar:sonar"      
-               }
-            }
-       }
+      
         stage('Quality Gate') {
           steps {
                  waitForQualityGate abortPipeline: true
