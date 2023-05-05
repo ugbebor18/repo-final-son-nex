@@ -23,6 +23,12 @@ pipeline {
                }
             }
        }
+       
+       stage('Quality Gate') {
+          steps {
+                 waitForQualityGate abortPipeline: true
+              }
+        }
         
         stage('push to nexus') {
             steps {
